@@ -5,8 +5,8 @@ main()
 {
 	print(" ");
 
-		func1();
-		print(" ");
+	func1();
+	print(" ");
 
 	func2();
 	print(" ");
