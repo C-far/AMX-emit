@@ -41,20 +41,16 @@ main()
 	print(" ");
 	print("Value address");
    
-	#emit LCTRL 5
-	#emit CONST.alt value2
-	#emit ADD
-	#emit MOVE.alt
 	#emit LCTRL 1
+	#emit ADDR.alt value2
 	#emit ADD
 	#emit PUSH.pri
-	#emit LCTRL 5
-	#emit CONST.alt value1
-	#emit ADD
-	#emit MOVE.alt
+	
 	#emit LCTRL 1
+	#emit ADDR.alt value1
 	#emit ADD
-	#emit PUSH.pri  
+	#emit PUSH.pri 
+	
 	#emit PUSH.C 8
 	#emit CALL func
 }

@@ -1,12 +1,12 @@
 #include "a_samp"
-#include "YSI\y_amx"
+#tryinclude "YSI\y_amx"
 
 main()
 {
 	print(" ");
 
-	func1();
-	print(" ");
+		func1();
+		print(" ");
 
 	func2();
 	print(" ");
@@ -19,13 +19,17 @@ func1()
 {
 	print("--- METHOD 1 ---");
 
-	new
-		var = 5843,
-		address = AMX_GetRelativeAddress(var), // Fonction propre à y_amx permettant de récupérer l'adresse d'une variable passée en argument
-		value = AMX_RawRead(address); // Fonction propre à y_amx permmettant de récupérer la valeur à l'adresse d'une variable passée en argument
+	#if defined _INC_y_amx
+		new
+			var = 5843,
+			address = AMX_GetRelativeAddress(var), // Fonction propre à y_amx permettant de récupérer l'adresse d'une variable passée en argument
+			value = AMX_RawRead(address); // Fonction propre à y_amx permmettant de récupérer la valeur à l'adresse d'une variable passée en argument
 
-	printf("address = 0x%x", address);
-	printf("value = %d", value);
+		printf("address = 0x%x", address);
+		printf("value = %d", value);
+	#else
+		print("y_amx non inclu.");
+	#endif
 }
 
 func2()
