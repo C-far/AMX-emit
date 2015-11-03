@@ -2,7 +2,7 @@
 	Remark : The Zeex's PAWN Compiler is required to use the p-code CALL.
 \**--------------------------------------------------------------------------**/
 #if __Pawn != 0x030A
-	#error Download the Zeex's PAWN Compiler is required to use the p-code CALL.
+	#error Download the Zeex's PAWN Compiler, it is required to use the p-code CALL.
 // '
 #endif
 
