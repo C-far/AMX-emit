@@ -3,75 +3,51 @@
 main()
 {      
 	new
-		var = 5,
+		variable = 123456789,
 		frame_pointer,
 		local_address,
 		relative_address,
 		data = GetAmxRealData(),
 		global_address;
 
-	/**														**\
+	/**
+	**\
 		frame_pointer + local_address = relative_address
 		relative_address + data = global_address 
-	\**														**/
-		 
+
+		reg.x = registre ...
+		hdr.x = header ...
+		seg.x = segment ...
+		var.x = variable ...
+		frm = frame pointer
+		
+	**/
+
 	// Get Frame Pointer
-	#emit LCTRL 5
-	#emit STOR.S.pri frame_pointer
+	#emit LCTRL 5 // reg.pri = frm
+	#emit STOR.S.pri frame_pointer // var.frame_pointer = reg.pri
 	// Get Frame Pointer
    
+	// pri = Frame pointer
+   
 	// Get local address
-	#emit CONST.alt var
-	#emit STOR.S.alt local_address
+	#emit CONST.alt variable // reg.alt = local address of var.variable
+	#emit STOR.S.alt local_address // var.local_address = reg.alt
 	// Get local address
+	
+	// alt = Local address
 	
 	// Get relative address
-	#emit ADD
-	#emit STOR.S.pri relative_address
+	#emit ADD // reg.pri += reg.alt
+	#emit STOR.S.pri relative_address // var.relative_address = reg.pri
 	// Get relative address
 	
-	// Get base
-	new 
-		cod, 
-		dat;
-		
-	#emit LCTRL 0
-	#emit STOR.S.pri cod
-	#emit LCTRL 1
-	#emit STOR.S.pri dat
-
-	new 
-		code_start = cod - dat,
-		fn_addr;
-		
-	#emit CONST.pri dth_amxh
-	#emit STOR.S.pri fn_addr
-
-	new 
-		call_addr;
-		
-	dth_amxh();
-	
-	#emit LCTRL 6
-	#emit STOR.S.pri call_addr
-	
-	call_addr = call_addr - 12 + code_start;
-	
-	#emit LREF.S.pri call_addr
-	
-	#emit LOAD.S.alt fn_addr
-	#emit SUB
-	
-	#emit LOAD.S.alt cod
-	#emit SUB
-	
-	#emit STOR.S.pri base
-	// Get base
+	// pri = Relative address
 	
 	// Get global address
-	#emit LOAD.S.alt relative_address
-	#emit ADD
-	#emit STOR.S.pri global_address // On stocke la valeur se trouvant dans le registre primaire | global_address = pri
+	#emit LOAD.S.alt data // reg.alt = var.data
+	#emit ADD // reg.pri += reg.alt
+	#emit STOR.S.pri global_address // var.global_address = reg.pri
 	// Get global address
    
 	printf("frame_pointer : 0x%x | %d", frame_pointer, frame_pointer);
@@ -83,12 +59,14 @@ main()
 
 stock GetAmxRealData()
 {
-	/*
+	/**
+	
 		reg.x = registre ...
 		hdr.x = header ...
 		seg.x = segment ...
 		var.x = variable ...
-	*/
+		
+	**/
 
 	new
 		addr,
