@@ -1,5 +1,16 @@
 #include "a_samp"
 
+/*
+
+	test1 = *(data + frm)
+	test2 = *(data + *(data + frm))
+	test3 = *(data + *(data + *(data + frm)))
+	test4 = *(data + *(data + *(data + *(data + frm))))
+	
+	test1 = test2 = test3 = test4 = main()'s FRM
+
+*/
+
 main()
 {
 	new
@@ -52,7 +63,7 @@ test3()
 	#emit STOR.S.pri frm
 	
 	printf("FRM_test3 :  0x%x", frm);
-
+	
 	test4();
 }
 
