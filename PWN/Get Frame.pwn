@@ -57,9 +57,6 @@ test3()
 		
 	#emit LREF.S.pri 0
 	#emit LOAD.I
-	//#emit LOAD.I could be replaced by :
-	//#emit STOR.S.pri frm
-	//#emit LOAD.S.pri frm
 	#emit STOR.S.pri frm
 	
 	printf("FRM_test3 :  0x%x", frm);
@@ -75,9 +72,6 @@ test4()
 	#emit LREF.S.pri 0
 	#emit LOAD.I
 	#emit LOAD.I
-	//2x #emit LOAD.I could be replaced by :
-	//#emit STOR.S.pri frm
-	//#emit LREF.S.pri frm
 	#emit STOR.S.pri frm
 	
 	printf("FRM_test4 :  0x%x", frm);
