@@ -9,22 +9,22 @@ main()
 
 func(...)
 {
-	#emit LCTRL 5 // Le registre primaire stocke le frm | pri = frm
-	#emit ADD.C 8 // On y ajoute 8 (2*sizeof(cell)) | pri += 8
-	#emit LOAD.I // On récupère la valeur à l'adresse dat+pri (pri = frm+8) dans le registre primaire | pri = *(dat + frm + 8)
-	#emit SHR.C.pri 2 // pri >>= 2 (pri / 4)
-	#emit RETN // On retourne le résultat se trouvant dans le registre primaire
+	#emit LCTRL 5
+	#emit ADD.C 8
+	#emit LOAD.I
+	#emit SHR.C.pri 2
+	#emit RETN
    
-	return 0; // On évite le warning 209
+	return 0;
 }
 
 func2(...)
 {
-	#emit LOAD.S.pri 8 // Le registre primaire stocke la valeur se trouvant à l'addresse dat+frm+8 | pri = *(dat + frm + 8)
-	#emit SHR.C.pri 2 // pri >>= 2 (pri / 4)
-	#emit RETN // On retourne le résultat se trouvant dans le registre primaire
+	#emit LOAD.S.pri 8
+	#emit SHR.C.pri 2
+	#emit RETN
    
-	return 0; // On évite le warning 209
+	return 0;
 }
 
 func3(...)
@@ -34,11 +34,11 @@ func3(...)
 
 numargs_()
 {
-	#emit LOAD.S.pri 0 // Le registre primaire stocke la valeur se trouvant à l'adresse dat+frm | pri = *(dat + frm)
-	#emit ADD.C 8 // pri += 8
-	#emit LOAD.I // On récupère la valeur à l'adresse stockée par le registre primaire | pri = *(dat + pri)
-	#emit SHR.C.pri 2 // pri >>= 2 (pri / 4)
-	#emit RETN // On retourne le résultat se trouvant dans le registre primaire
+	#emit LOAD.S.pri 0
+	#emit ADD.C 8
+	#emit LOAD.I
+	#emit SHR.C.pri 2
+	#emit RETN
 	
 	return 0;
 }
